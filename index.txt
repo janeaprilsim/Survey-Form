@@ -1,0 +1,426 @@
+<html>
+<style>
+/* reset browser styles */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1.2;
+}
+ol {
+  padding-left: 1.4em;
+  list-style: decimal;
+}
+ul {
+  padding-left: 1.4em;
+  list-style: square;
+}
+/* end reset browser styles */
+
+/* Courgette font */
+@import url(https://fonts.googleapis.com/css?family=Courgette|Pacifico);
+
+body {
+  background: rgb(156, 212, 218);
+  background: linear-gradient(rgb(156, 212, 218), rgb(156, 0, 218));
+  padding: 2em;
+}
+
+h1 {
+  font-family: "Courgette", cursive;
+  font-size: 3em;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+#survey-form {
+  color: white;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 1.3em;
+}
+
+.container {
+  background-color: rgb(204, 97, 148);
+  border-radius: 5px;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 1em;
+  width: 80%;
+}
+
+.form-intro {
+  margin-bottom: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+#number {
+  width: 50px;
+}
+
+/* colLeft, colRight */
+.colLeft {
+  color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px;
+  text-align: right;
+  width: 35%;
+  vertical-align: middle;
+}
+
+.colRight {
+  display: inline-block;
+  padding: 10px;
+  text-align: left;
+  width: 45%;
+  vertical-align: middle;
+}
+
+/* dropdown */
+select {
+  font-size: 0.9em;
+  border: 1px solid white; /*this is added as the default box and arrows do not show up on desktop*/
+}
+
+/* fieldset */
+fieldset {
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+legend {
+  font-weight: bold;
+}
+
+.descriptionLeft {
+  color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 10px 10px 0;
+  width: 200px;
+}
+
+.descriptionRight {
+  color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 10px 10px 10px 0;
+  width: 200px;
+}
+
+/* text, email, number type and textarea */
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 255, 0.75);
+  color: rgba(0, 0, 0, 1);
+  font-size: 0.9em;
+  padding: 5px;
+  width: 80%;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="number"]:focus,
+form textarea:focus {
+  background-color: rgb(204, 224, 148);
+  color: rgb(0, 0, 0);
+}
+
+/* submit type */
+.submitWrap {
+  text-align: right;
+}
+
+form input[type="submit"] {
+  background: rgb(60, 179, 113);
+  background: linear-gradient(
+    to bottom,
+    rgba(156, 212, 218, 0.6) 30%,
+    rgba(156, 212, 218, 0.9)
+  );
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 4px white;
+  color: white;
+  font-size: 1em;
+  padding: 10px 25px;
+}
+
+/* media queries */
+@media screen and (max-width: 760px) {
+  .colRight {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .form-intro {
+    margin-top: 0;
+    padding: 50px 25px 20px 25px;
+  }
+  .colLeft {
+    box-sizing: border-box;
+    margin-right: 0;
+    padding: 10px 20px 5px 40px;
+    text-align: left;
+    width: 100%;
+  }
+  .colRight {
+    box-sizing: border-box;
+    padding: 0 20px 0 40px;
+    width: 100%;
+  }
+  fieldset {
+    border: none;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 40px;
+    padding: 1px 20px 0 40px;
+    width: 100%;
+  }
+  .descriptionLeft,
+  .descriptionRight {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .colLeft.comments,
+  .textarea {
+    padding: 10px 25px 10px 25px;
+    text-align: center;
+  }
+  .submitWrap {
+    padding: 20px 20px 20px 0;
+  }
+}
+
+</style>
+  <head>
+      
+      <title>This website uses external CSS</title>
+  </head>
+  <body>
+     <div class="header"
+     
+  <body>
+
+  <form id="survey-form" action="submit.html" method="post">
+    <div class="container">
+      <div class="form-intro">
+        <h1 id="title">Survey Form</h1>
+        <p id="description">Help us improve with your feedback!</p>
+      </div>
+
+      <div class="row">
+        <div class="colLeft">
+          <label for="name" id="name-label">Name</label>
+        </div>
+        <div class="colRight">
+          <input type="text" name="name" id="name" placeholder="Name" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="colLeft">
+          <label for="email" id="email-label">Email</label>
+        </div>
+        <div class="colRight">
+          <input type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="colLeft">
+          <label for="number" id="number-label">Age</label>
+        </div>
+        <div class="colRight">
+          <input type="number" name="number" id="number" min="1" max="125" placeholder="Age" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="colLeft">
+          <label for="refer">How did you hear about us?</label>
+        </div>
+        <div class="colRight">
+          <select name="refer" id="dropdown" required>
+            <option value="">Select one</option>
+            <option value="friend">Friend</option>
+            <option value="tripAdvisor">Trip Advisor</option>
+            <option value="homeAway">Home Away</option>
+            <option value="airBnb">Airbnb</option>
+            <option value="google">Google ad</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <fieldset>
+            <legend>How did you hear about us</legend>
+            <input type="radio" name="satisfaction" value="verySatisfied" id="verySatisfied" checked><label for="verySatisfied">Very satisfied</label><br>
+            <input type="radio" name="satisfaction" value="somewhatSatisfied" id="somewhatSatisfied"><label for="somewhatSatisfied">Somewhat satisfied</label><br>
+            <input type="radio" name="satisfaction" value="somewhatDissatisfied" id="somewhatDissatisfied"><label for="somewhatDissatisfied">Somewhat dissatisfied</label><br>
+            <input type="radio" name="satisfaction" value="veryDissatisfied" id="veryDissatisfied"><label for="veryDissatisfied">Very dissatisfied</label><br>
+          </fieldset>
+        </div>
+
+        <div class="row">
+          <fieldset>
+           <legend>How likely is it that you will recommend this product to a friend?</legend>
+           <input type="radio" name="recommendation" value="extremelyLikely" id="extremelyLikely" checked><label for="extremelyLikely">Extremely likely</label><br>
+           <input type="radio" name="recommendation" value="likely" id="likely"><label for="likely">Likely</label><br>
+           <input type="radio" name="recommendation" value="notLikely" id="notLikely"><label for="notLikely">Not likely</label><br>
+          </fieldset>
+        </div>
+
+        <div class="row">
+          <fieldset>
+            <legend>Select one or more of the following words to describe our staff.</legend>
+            <div class="descriptionLeft">
+              <input type="checkbox" name="productDescription" value="value7" id="value7"><label for="value7">Friendly</label><br>
+              <input type="checkbox" name="productDescription" value="value8" id="value8"><label for="value8">Helpful</label><br>
+              <input type="checkbox" name="productDescription" value="value9" id="value9"><label for="value9">Attentive</label><br>
+              <input type="checkbox" name="productDescription" value="value9" id="value9"><label for="value9">Professional</label>
+            </div>
+            <div class="descriptionRight">
+              <input type="checkbox" name="productDescription" value="value7" id="value7"><label for="value7">Unfriendly</label><br>
+              <input type="checkbox" name="productDescription" value="value8" id="value8"><label for="value8">Unhelpful</label><br>
+              <input type="checkbox" name="productDescription" value="value9" id="value9"><label for="value9">Unattentive</label><br>
+              <input type="checkbox" name="productDescription" value="value9" id="value9"><label for="value9">Unprofessional</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="row">
+          <div class="colLeft comments">
+            <label for="comments">Additional comments</label>
+          </div>
+          <div class="colRight textarea">
+            <textarea name="comments" cols="35" rows="4" id="comments"></textarea>
+          </div>
+        </div>
+
+        <div class="submitWrap">
+          <input type="submit" id="submit">
+        </div>
+
+    </form>
+   </div>
+<!--    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+  </body>
+</html>
